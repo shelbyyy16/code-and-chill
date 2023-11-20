@@ -4,6 +4,7 @@ module.exports = {
     new: newGrocery,
     create,
     index,
+    show,
 }
 
 async function index(req, res) {
@@ -36,3 +37,15 @@ async function create(req, res) {
         res.render("groceries/new", {errorMsg: err.message});
     }
 }
+
+async function show(req, res) {
+    try {
+        const grocery = await Grocery.findById(req.params.id)
+        res.render('./groceries/show', { grocery, title: 'Grocery Details' })
+    } catch (err) {
+        console.log(err)
+        res.redirect('/groceries')  
+    }
+}
+
+
