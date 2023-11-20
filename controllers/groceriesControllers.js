@@ -18,7 +18,7 @@ async function create(req, res) {
 
     try{
         const createdGrocery = await Grocery.create(groceryData);
-        res.redirect("/groceries/" + createdGrocery._id);
+        res.redirect("/groceries/" + createdGrocery._id, { title: 'Add Groceries' });
     } catch (err) {
         console.log(err);
         res.render("groceries/new", {errorMsg: err.message});
