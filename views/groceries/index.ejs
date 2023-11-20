@@ -5,9 +5,24 @@
         <tr>
             <th>Dairy</th>
             <th>Produce</th>
-            <th></th>
+            <th>Snacks</th>
         </tr>
     </thead>
+    <tbody>
+        <% groceries.forEach(function(g) { %>
+       <td>
+        <%= g.dairy %><br>
+       </td>
+       <td>
+        <%= g.produce %><br>
+       </td>
+       <td>
+        <%= g.snacks %><br>
+       </td>
+       <% }) %>
+    </tbody>
 </table>
+<a href="/groceries">Home</a>
+
 
 <%- include('../partials/footer') %>

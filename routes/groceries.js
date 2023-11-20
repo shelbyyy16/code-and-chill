@@ -8,4 +8,6 @@ router.post('/', groceryCtrl.create)
 
 router.get('/', groceryCtrl.index)
 
+router.get('/:id', groceryCtrl.show)
+
 module.exports = router
