@@ -1,9 +1,20 @@
 <%- include('../partials/header') %>
 
-<section id="show">
-    
-</section>
+    <section id="show">
+
+        <h4>Grocery List</h4>
 
 
+        <p>Dairy: <span>
+                <%= grocery.dairy %>
+            </span></p>
+        <p>Produce: <span>
+                <%= grocery.produce %>
+            </span></p>
+        <p>Snacks: <span>
+                <%= grocery.snacks %>
+            </span></p>
 
-<%- include('../partials/footer') %>
+    </section>
+
+    <%- include('../partials/footer') %>
