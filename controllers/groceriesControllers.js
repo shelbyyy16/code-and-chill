@@ -3,6 +3,16 @@ const Grocery = require("../models/groceriesModel")
 module.exports = {
     new: newGrocery,
     create,
+    index,
+}
+
+async function index(req, res) {
+    try {
+        const groceries = await Grocery.find()
+        res.render('./groceries/index', {groceries, title: 'All Groceries'})
+    } catch (err) {
+        console.log(err)
+    }
 }
 
 function newGrocery(req, res) {
@@ -10,15 +20,17 @@ function newGrocery(req, res) {
 }
 
 async function create(req, res) {
-    const groceryData = {...req.res};
+    //const groceryData = {...req.res};
+    //const groceryData = req.body
   
-    for (let key in groceryData) {
-        if(groceryData[key] === "") delete groceryData[key];
-    }
+    // for (let key in groceryData) {
+    //     if(groceryData[key] === "") delete groceryData[key];
+    // }
 
     try{
-        const createdGrocery = await Grocery.create(groceryData);
-        res.redirect("/groceries/" + createdGrocery._id);
+        const createdGrocery = await Grocery.create(req.body);
+        console.log(createdGrocery)
+        res.redirect("/groceries");
     } catch (err) {
         console.log(err);
         res.render("groceries/new", {errorMsg: err.message});
