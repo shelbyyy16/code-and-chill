@@ -63,7 +63,7 @@ async function destroy(req, res) {
 
 async function edit(req,res) {
     try{
-      const grocery =  await Grocery.getOne(req.params.id)
+      const grocery =  await Grocery.findByIdAndUpdate(req.params.id)
       res.render('groceries/edit', {grocery})
     }
     catch (err) { 
