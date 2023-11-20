@@ -6,6 +6,7 @@ module.exports = {
   index,
   show,
   destroy,
+  edit,
 };
 
 async function index(req, res) {
@@ -58,4 +59,15 @@ async function destroy(req, res) {
     console.log(err);
     res.redirect("/groceries/${req.params.id}");
   }
+}
+
+async function edit(req,res) {
+    try{
+      const grocery =  await Grocery.getOne(req.params.id)
+      res.render('groceries/edit', {grocery})
+    }
+    catch (err) { 
+    console.log(err)
+    res.redirect('/groceries')
+    }
 }
