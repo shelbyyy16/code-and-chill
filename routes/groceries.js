@@ -10,4 +10,6 @@ router.get('/', groceryCtrl.index)
 
 router.get('/:id', groceryCtrl.show)
 
+router.delete('/:id', groceryCtrl.destroy)
+
 module.exports = router

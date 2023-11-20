@@ -15,6 +15,8 @@
                 <%= grocery.snacks %>
             </span></p>
 
-    </section>
-
+<form action="/groceries/<%= grocery._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Item</button>
+</form>
+</section>
     <%- include('../partials/footer') %>
