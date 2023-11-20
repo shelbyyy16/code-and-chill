@@ -10,22 +10,24 @@
         </thead>
         <tbody>
             <% groceries.forEach(function(g) { %>
-                <td>
-                    <%= g.dairy %><br>
-                </td>
-                <td>
-                    <%= g.produce %><br>
-                </td>
-                <td>
-                    <%= g.snacks %><br>
-                </td>
-                <td>
-                    <a href="/groceries/<%= g.id %>">Details</a>
-                </td>
-                <% }) %>
+                <tr>
+                    <td>
+                        <%= g.dairy %><br>
+                    </td>
+                    <td>
+                        <%= g.produce %><br>
+                    </td>
+                    <td>
+                        <%= g.snacks %><br>
+                    </td>
+                    <td>
+                        <a href="/groceries/<%= g.id %>">Details</a>
+                    </td>
+                    <% }) %>
+                </tr>
         </tbody>
     </table>
-    <a href="/groceries">Home</a>
+    
 
 
     <%- include('../partials/footer') %>
