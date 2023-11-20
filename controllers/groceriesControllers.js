@@ -10,15 +10,17 @@ function newGrocery(req, res) {
 }
 
 async function create(req, res) {
-    const groceryData = {...req.res};
+    //const groceryData = {...req.res};
+    const groceryData = req.body
   
-    for (let key in groceryData) {
-        if(groceryData[key] === "") delete groceryData[key];
-    }
+    // for (let key in groceryData) {
+    //     if(groceryData[key] === "") delete groceryData[key];
+    // }
 
     try{
         const createdGrocery = await Grocery.create(groceryData);
-        res.redirect("/groceries/" + createdGrocery._id, { title: 'Add Groceries' });
+        console.log(createdGrocery)
+        res.redirect("/groceries", { title: 'Add Groceries' });
     } catch (err) {
         console.log(err);
         res.render("groceries/new", {errorMsg: err.message});
